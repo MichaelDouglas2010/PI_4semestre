@@ -1,8 +1,10 @@
 import { Router } from "express";
-import TaskRoutes from './task/task.routes'
+import taskRoutes from './task/task.routes'
+import authRoutes from "./task/auth.routes";
 
 const routes = Router()
 
-routes.use('/task',TaskRoutes)
+routes.use('/task',taskRoutes)
+routes.use('/auth',authRoutes)
 
 export default routes  

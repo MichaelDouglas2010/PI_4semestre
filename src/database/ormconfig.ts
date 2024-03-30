@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm"
 import dotenv from 'dotenv'
+import { join } from "path"
 
 dotenv.config()  //Carrega as variaveis do arq .env
 
@@ -7,7 +8,8 @@ const dataBase = new DataSource({
     type:'sqlite',
     database: process.env.DATABASE || './src/database/database.sqlite',
     entities: [
-        './src/models/*.ts'
+        join(__dirname, '..', 'models/*.{ts,js}')
+        //'./src/models/*.ts'
     ],
     logging: true, //Log das queries exec
     synchronize: true //Cria as tabelas automaticas
