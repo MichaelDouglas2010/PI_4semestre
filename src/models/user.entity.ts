@@ -1,6 +1,7 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, OneToMany } from "typeorm"
 import Token from "./token.entity"
 import Task from "./task.entity"
+import Machi from "./machi.entity"
 
 @Entity()
 export default class User extends BaseEntity{
@@ -21,4 +22,7 @@ export default class User extends BaseEntity{
 
     @OneToMany(() => Task, task => task.user)
     tasks!: Task[]
+
+    @OneToMany(() => Machi, machi => machi.user)
+    machis!: Machi[]
 }   
